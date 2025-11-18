@@ -1,0 +1,4 @@
+modules = ["java"]
+
+[agent]
+expertMode = true
