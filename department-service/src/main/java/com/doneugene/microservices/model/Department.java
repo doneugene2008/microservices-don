@@ -7,7 +7,7 @@ package com.doneugene.microservices.model;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.GenericGenerator;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Objects;
 import java.util.UUID;
 
