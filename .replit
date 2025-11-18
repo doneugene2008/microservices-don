@@ -2,3 +2,34 @@ modules = ["java"]
 
 [agent]
 expertMode = true
+
+[nix]
+channel = "stable-25_05"
+packages = ["maven", "jdk17"]
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Service Registry"
+
+[[workflows.workflow]]
+name = "Service Registry"
+author = "agent"
+
+[workflows.workflow.metadata]
+outputType = "console"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd service-registry && mvn spring-boot:run"
+
+[[ports]]
+localPort = 8761
+externalPort = 80
